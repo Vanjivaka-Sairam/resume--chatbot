@@ -31,7 +31,7 @@ st.markdown(
 
 def main():
     st.title("🤖 Vanjivaka Sairam's Resume Assistant")
-    st.write("Ask anything about my resume. I'll only answer using that information.")
+    st.write("Ask anything about my resume.")
 
     
     model = "gemma2-9b-it"
