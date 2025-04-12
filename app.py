@@ -30,7 +30,7 @@ st.markdown(
 )
 
 def main():
-    st.title("🤖 Vanjivaka Sairam's Resume Assistant")
+    st.title("🤖")
     st.write("Ask anything about my resume.")
 
     
