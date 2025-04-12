@@ -19,10 +19,10 @@ st.markdown(
     """
     <style>
     body {
-        background-color: #123458 !important;
+        background-color: #0E1423 !important;
     }
     .stApp {
-        background-color: #123458;
+        background-color: #0E1423;
     }
     </style>
     """,
