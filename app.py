@@ -12,7 +12,22 @@ from resume_text import resume_text
 load_dotenv()
 groq_api_key = os.getenv("GROQ_API_KEY")
 
+
+
 st.set_page_config(page_title="Vanjivaka Sairam's Resume Assistant", layout="centered")
+st.markdown(
+    """
+    <style>
+    body {
+        background-color: #123458 !important;
+    }
+    .stApp {
+        background-color: #123458;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 def main():
     st.title("🤖 Vanjivaka Sairam's Resume Assistant")
@@ -24,16 +39,6 @@ def main():
 
 
     memory = ConversationBufferWindowMemory(k=memory_length)
-
-    # Session state for persistent chat history (optional)
-    # if "chat_history" not in st.session_state:
-    #     st.session_state.chat_history = []
-
-    # Commented out loading previous context
-    # for message in st.session_state.chat_history:
-    #     memory.save_context({"input": message["human"]}, {"output": message["AI"]})
-
-    # User input
     user_question = st.text_input("Ask a question about Vanjivaka Sairam's resume:")
 
     if user_question:
@@ -62,26 +67,16 @@ Resume:
         try:
             response = chat([system_message, human_message]).content
 
-            # Validate response content
             if "I can only answer" not in response and not any(
                 keyword.lower() in response.lower()
                 for keyword in ["sairam", "iit", "ropar"] + resume_text.split()[:20]
             ):
                 response = "I can only answer questions based on Vanjivaka Sairam's resume."
 
-            # Save chat (optional)
-            # st.session_state.chat_history.append({"human": user_question, "AI": response})
             st.markdown(f"**Resume Assistant:** {response}")
 
         except Exception as e:
             st.error(f"An error occurred: {e}")
-
-    # Chat history display (optional)
-    # st.markdown("---")
-    # st.subheader("Chat History")
-    # for message in st.session_state.chat_history:
-    #     st.markdown(f"**You:** {message['human']}")
-    #     st.markdown(f"**Assistant:** {message['AI']}")
 
 if __name__ == "__main__":
     main()
