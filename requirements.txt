@@ -2,4 +2,5 @@ streamlit
 langchain
 langchain_groq
 python-dotenv
+streamlit-autorefresh
 st_autorefresh
