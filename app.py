@@ -15,13 +15,10 @@ groq_api_key = os.getenv("GROQ_API_KEY")
 
 
 
-st.set_page_config(page_title="Vanjivaka Sairam's Resume Assistant", layout="centered")
+st.set_page_config(page_title="Vanjivaka Sairam's Resume Assistant", layout="wide")
 st.markdown(
     """
     <style>
-    body {
-        background-color: #0E1423 !important;
-    }
     .stApp {
         background-color: #0E1423;
     }
@@ -29,6 +26,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 def main():
     st_autorefresh(interval=600000, limit=None, key="heartbeat")
