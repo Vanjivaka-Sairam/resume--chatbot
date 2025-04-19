@@ -7,6 +7,7 @@ from langchain_groq import ChatGroq
 from langchain.schema import SystemMessage, HumanMessage
 from langchain.memory import ConversationBufferWindowMemory
 from resume_text import resume_text  
+from streamlit_autorefresh import st_autorefresh
 
 
 load_dotenv()
@@ -30,6 +31,7 @@ st.markdown(
 )
 
 def main():
+    st_autorefresh(interval=600000, limit=None, key="heartbeat")
     st.title("🤖")
     st.write("Ask anything about my resume.")
 
